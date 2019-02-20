@@ -28,16 +28,16 @@ class Config(unittest.TestCase):
             ("just_invented", { "places": 255, "curr": 8, "name": "random" }),
             ), False)
         just_invented_settings = cfg.get_section_options("just_invented")
-        self.assertEquals(just_invented_settings["places"], 255)
-        self.assertEquals(just_invented_settings["curr"], 8)
+        self.assertEquals(int(just_invented_settings["places"]), 255)
+        self.assertEquals(int(just_invented_settings["curr"]), 8)
         self.assertEquals(just_invented_settings["name"], "random")
 
         cfg_2 = settings.reader.read(file_path, (
             ("just_invented", { "places": 4, "curr": 1 }),
             ), False)
         just_invented_settings_2 = cfg_2.get_section_options("just_invented")
-        self.assertEquals(just_invented_settings_2["places"], 4)
-        self.assertEquals(just_invented_settings_2["curr"], 1)
+        self.assertEquals(int(just_invented_settings_2["places"]), 4)
+        self.assertEquals(int(just_invented_settings_2["curr"]), 1)
 
     # add missing sections and update file
     def test_file_update(self):
@@ -61,8 +61,8 @@ class Config(unittest.TestCase):
             ("just_invented", { "places": 5, "curr": 4, "name": "random" })
             , False)
         just_invented_settings = cfg.get_section_options("just_invented")
-        self.assertEquals(just_invented_settings["places"], 5)
-        self.assertEquals(just_invented_settings["curr"], 4)
+        self.assertEquals(int(just_invented_settings["places"]), 5)
+        self.assertEquals(int(just_invented_settings["curr"]), 4)
         self.assertEquals(just_invented_settings["name"], "random")
 
     # directly instantiate Reader class
@@ -71,8 +71,8 @@ class Config(unittest.TestCase):
             ("just_invented", { "places": 255, "curr": 8, "name": "random" }),
             ), False)
         just_invented_settings = cfg.get_section_options("just_invented")
-        self.assertEquals(just_invented_settings["places"], 255)
-        self.assertEquals(just_invented_settings["curr"], 8)
+        self.assertEquals(int(just_invented_settings["places"]), 255)
+        self.assertEquals(int(just_invented_settings["curr"]), 8)
         self.assertEquals(just_invented_settings["name"], "random")
 
     # cleanup actions
